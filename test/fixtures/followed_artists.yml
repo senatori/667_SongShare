@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fan_id: 
+  artist_id: 
+
+two:
+  fan_id: 
+  artist_id: 
