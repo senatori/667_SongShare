@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116015314) do
+ActiveRecord::Schema.define(version: 20131116062323) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -56,6 +56,35 @@ ActiveRecord::Schema.define(version: 20131116015314) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "followed_artists", force: true do |t|
+    t.integer  "fan_id"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "followed_artists", ["artist_id"], name: "index_followed_artists_on_artist_id", using: :btree
+  add_index "followed_artists", ["fan_id"], name: "index_followed_artists_on_fan_id", using: :btree
+
+  create_table "playlist_songs", force: true do |t|
+    t.integer  "playlist_id"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "playlist_songs", ["playlist_id"], name: "index_playlist_songs_on_playlist_id", using: :btree
+  add_index "playlist_songs", ["song_id"], name: "index_playlist_songs_on_song_id", using: :btree
+
+  create_table "playlists", force: true do |t|
+    t.string   "title"
+    t.integer  "fan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "playlists", ["fan_id"], name: "index_playlists_on_fan_id", using: :btree
 
   create_table "songs", force: true do |t|
     t.string   "title"
