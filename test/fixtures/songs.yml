@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  featured_artists: MyString
+  is_downloadable: false
+  track_number: 1
+  source_url: MyString
+  album_id: 
+  artist_id: 
+
+two:
+  title: MyString
+  featured_artists: MyString
+  is_downloadable: false
+  track_number: 1
+  source_url: MyString
+  album_id: 
+  artist_id: 

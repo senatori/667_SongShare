@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  release_date: 2013-11-15
+  genre: MyString
+  credits: MyString
+  album_artwork_url: MyString
+  artist_id: 
+
+two:
+  title: MyString
+  release_date: 2013-11-15
+  genre: MyString
+  credits: MyString
+  album_artwork_url: MyString
+  artist_id: 
