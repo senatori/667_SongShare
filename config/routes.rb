@@ -1,8 +1,15 @@
 GroupProject::Application.routes.draw do
 
+  root 'pages#test_facebook'
+  get 'pages/test_facebook'
   resources :albums
   resources :artists
   resources :songs
+
+  #used for facebook auth
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

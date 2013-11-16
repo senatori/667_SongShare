@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116012153) do
+ActiveRecord::Schema.define(version: 20131116015314) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20131116012153) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "photo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fans", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
