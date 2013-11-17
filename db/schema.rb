@@ -26,17 +26,6 @@ ActiveRecord::Schema.define(version: 20131116062323) do
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
-  create_table "appointments", force: true do |t|
-    t.integer  "year"
-    t.integer  "month"
-    t.integer  "day"
-    t.integer  "hour"
-    t.integer  "minute"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "artists", force: true do |t|
     t.string   "name"
     t.string   "description"

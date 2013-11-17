@@ -33,7 +33,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'bootstrap-sass', '~>2.3.2.2'
+gem 'bootstrap-sass', '~>3.0.2.1'
 
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
