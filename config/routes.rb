@@ -1,7 +1,7 @@
 GroupProject::Application.routes.draw do
 
-  root 'pages#test_facebook'
-  get 'pages/test_facebook'
+  root 'home/#index'
+  get 'pages/test_facebook' => 'pages#test_facebook'
   resources :albums
   resources :artists
   resources :songs
