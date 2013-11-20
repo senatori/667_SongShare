@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Untitled Document</title>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/addon.css" rel="stylesheet"> 
-    </head>
-    <body>
+<body>
     	<nav class="navbar navbar-default navbar-fixed-top music-nav" role="navigation">
         
-        	<img class= "navbar-left" src=<%=image_path("logo.png")%> />
+			<%= image_tag "logo.png", :class => "navbar-left" %>
                 <form class="navbar-form navbar-right" role="search">
                 	<ul class="nav navbar-nav">
             			<li><a href="#">Sign Up</a></li>
@@ -36,23 +26,22 @@
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
             	<tr>
                 	<td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<a href="/artist"><%= image_tag "album_cover.jpg", :class => "img-thumbnail" %></a>
+						<a href="/artist"><h4>Stomach Cramp</h4></a>
+						<h6> By Gatormouth</h6>
+                  </td>
+                	<td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
                 	<td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
-                    </td>
-                	<td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
-                    <td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    </td><td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
            	  </tr>
@@ -63,23 +52,23 @@
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
             	<tr>
                 	<td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
                     <td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
                     <td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
                     <td>
-                    	<img src=<%=image_path('album_cover.jpg')%> class="img-thumbnail" alt"175x175">
-                    	<h4>Stomach Cramp</h4>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Stomach Cramp</h4>
                     	<h6> By Gatormouth</h6>
                     </td>
            	  </tr>
@@ -87,4 +76,3 @@
         </fieldset>
       </div>
     </body>
-</html>
