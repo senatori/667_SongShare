@@ -4,7 +4,7 @@ GroupProject::Application.routes.draw do
   get 'pages/test_facebook' => 'pages#test_facebook'
   get '/album' => 'pages#album'
   get '/artist' => 'pages#artist'
-  get '/fan => 'pages#fan'
+  get '/fan' => 'pages#fan'
   get '/playlist' => 'pages#playlist'
   resources :albums
   resources :artists
