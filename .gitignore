@@ -14,3 +14,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#OS X and IDE specific
+doc/
+*.swp
+* ̃
+.project
+.DS_Store
+.idea
+
+#token related
+.secret
