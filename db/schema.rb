@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116062323) do
+ActiveRecord::Schema.define(version: 20131123004501) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20131116062323) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "artists", ["email"], name: "index_artists_on_email", unique: true, using: :btree
 
   create_table "fans", force: true do |t|
     t.string   "provider"
