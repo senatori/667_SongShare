@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
 
   def create
 
-    @artist = User.new(user_params())
+    @artist = Artist.new(artist_params())
     if @artist.save
       # Handle a successful save.
       #redirect_to @artist or somewhere
@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
   private
 
   #for security, prevents someone from adding extra parameters in POST request via curl
-  def user_params
+  def artist_params
     params.require(:artist).permit(:name, :email, :password,
                                  :password_confirmation)
   end

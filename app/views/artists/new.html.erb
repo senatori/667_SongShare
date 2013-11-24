@@ -1,0 +1,40 @@
+<!--ABOUT: This is the Artist sign up page -->
+
+<% #provide(:title, 'Sign up') %>
+
+<h1>Sign up</h1>
+
+
+
+    <%= form_for(@artist, :html => { :class => "form-horizontal" }) do |f| %>
+
+         <!-- Form Data Validation/Error Generation occurs here -->
+        <% if @artist.errors.any? # .any? returns true if any values in hash, similar but opposite to .empty?%>
+              <div class="alert alert-error">
+                The form contains <%= pluralize(@artist.errors.count, "error")%>  <!-- count returns number of errors -->
+
+              <ul>
+                <% @artist.errors.full_messages.each do |msg| %>
+                    <li>* <%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <!--/Form Validation end -->
+
+        <!-- The actual form. Rails converts this to html -->
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+
