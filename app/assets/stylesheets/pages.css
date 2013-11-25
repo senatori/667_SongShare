@@ -1,9 +1,10 @@
-/*Place all the styles related to the Pages controller here */
-/* They will automatically be included in application.css. */
-/* You can use Sass (SCSS) here: http://sass-lang.com/ */
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
 legend{
 	font-size:18px;
+	text-align:left;
 }
 
 fieldset {
@@ -11,6 +12,14 @@ fieldset {
 }
 
 .top-albums {
+	text-align:center;
+}
+
+.discover-albums {
+	text-align:center;
+}
+
+.albums {
 	text-align:center;
 }
 
@@ -31,6 +40,26 @@ fieldset {
 	font-size: 10px;
 }
 
+.artist-cover {
+	text-align:center;
+	vertical-align:middle;
+}
+
+.artist-name {
+	text-align:center;
+	vertical-align:bottom;
+}
+
+.artist-desc {
+	text-align:left;
+	vertical-align:top;
+}
+
+
+.album-info {
+	text-align:center;
+	vertical-align:middle;
+}
 .navbar-nav > li > a {
 	padding-bottom: 7px;
 	padding-top: 7px;
