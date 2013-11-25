@@ -10,7 +10,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params())
     if @artist.save
       # Handle a successful save.
-      #redirect_to @artist or somewhere
+      redirect_to artist_path(@artist)
     else
       #errors are in the artist.errors hash, you can print them all out via artist.errors.full_messages
       render 'new'

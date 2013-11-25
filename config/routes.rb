@@ -3,11 +3,11 @@ GroupProject::Application.routes.draw do
   root 'pages#index'
   get 'pages/test_facebook' => 'pages#test_facebook'
   get '/album' => 'pages#album'
-  get '/artist' => 'pages#artist'
+  #get '/artist' => 'pages#artist'
   get '/fan' => 'pages#fan'
   get '/playlist' => 'pages#playlist'
   resources :albums
-  resources :artists
+  #resources :artists
   resources :songs
 
   #used for facebook auth
@@ -16,8 +16,9 @@ GroupProject::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   #Artist Authentication
-  match 'pages/artists/new', to: 'artists#new', via: 'get'
-  match 'pages/artists', to: 'artists#create', via: 'post'
+  #match 'artists/new', to: 'artists#new', via: 'get'
+  match 'artist_sign_up', to: 'artists#new', via: 'get'
+  match 'artists', to: 'artists#create', via: 'post'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
