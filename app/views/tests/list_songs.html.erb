@@ -1,0 +1,8 @@
+<%@songs = Song.all%>
+<%@songs.each do |song|%>
+
+	<p> <%=song['title']%> </p>
+	<audio controls> 
+		<source src=<%=song['source_url']%>>
+	</audio>
+<%end%>

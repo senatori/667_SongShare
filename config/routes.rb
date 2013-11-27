@@ -1,14 +1,18 @@
 GroupProject::Application.routes.draw do
 
   root 'pages#index'
-  get 'pages/test_facebook' => 'pages#test_facebook'
   get '/album' => 'pages#album'
-  #get '/artist' => 'pages#artist'
+  get '/artist' => 'pages#artist'
   get '/fan' => 'pages#fan'
   get '/playlist' => 'pages#playlist'
+
+  get "/tests/audio_upload"
+  get "/tests/test_facebook"
+  get "/tests/list_songs"
+
   resources :albums
   #resources :artists
-  resources :songs
+  #resources :songs
 
   #used for facebook auth
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -19,6 +23,8 @@ GroupProject::Application.routes.draw do
   #match 'artists/new', to: 'artists#new', via: 'get'
   match 'artist_sign_up', to: 'artists#new', via: 'get'
   match 'artists', to: 'artists#create', via: 'post'
+
+  match '/songs', to: 'songs#upload', via: 'post'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
