@@ -26,8 +26,8 @@ GroupProject::Application.routes.draw do
   match 'artists', to: 'artists#create', via: 'post'
 
   #Artist Sign In Session
-  match '/artist_signin',  to: 'sessions#new',         via: 'get'
-  match '/artist_signout', to: 'sessions#destroy',     via: 'delete'
+  match '/artist_signin',  to: 'artist_sessions#new',         via: 'get'
+  match '/artist_signout', to: 'artist_sessions#destroy',     via: 'delete'
 
 
   match '/songs', to: 'songs#upload', via: 'post'

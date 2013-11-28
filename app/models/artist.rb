@@ -18,11 +18,11 @@ class Artist < ActiveRecord::Base
 
   #---------------------------------session functionality--------------------------------------
   #defining static/class methods b/c we'll be calling them outside of our User model
-  def User.new_remember_token
+  def Artist.new_remember_token
     SecureRandom.urlsafe_base64 #creates a unique 16 char length string identifier A-Z, a-z, 0-9, "-", "_"
   end
 
-  def User.encrypt(token)
+  def Artist.encrypt(token)
     #encrypts our 16 char length identifer/token
     Digest::SHA1.hexdigest(token.to_s) #using to_s because tests will pass nil. no bueno
   end
@@ -32,7 +32,7 @@ class Artist < ActiveRecord::Base
   def create_remember_token
     #self because @user.remember_token is the db column/attribute, and we are inside the User object. Otherwise, Ruby
     #will create a var/object called remember_token.
-    self.remember_token = User.encrypt(User.new_remember_token)
+    self.remember_token = Artist.encrypt(Artist.new_remember_token)
   end
 
 end

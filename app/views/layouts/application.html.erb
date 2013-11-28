@@ -7,7 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top music-nav" role="navigation">
 
+  <%= image_tag "logo.png", :class => "navbar-left" %>
+  <form class="navbar-form navbar-right" role="search">
+
+    <ul class="nav navbar-nav">
+      <!-- IF signed in as Artist, display this in navigation bar -->
+      <% if signed_in? %>
+          <li><%= link_to "Users", '#' %></li> <!-- will add username retrieval later-->
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_artist %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", artist_signout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+       <!-- We will need a Fan session check needed here -->
+
+          <!-- THIS HTML is displayed If NOT SIGNED IN as a user of some sort -->
+      <% else %> <!-- If NOT SIGNED IN as ARTIST -->
+          <li><%= link_to "Sign in", artist_signin_path %></li>
+
+
+      <li><%= link_to "Sign Up", artist_sign_up_path %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
+    </ul>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+      <% end %>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  </ul>
+</nav>
 <%= yield %>
 
 </body>
