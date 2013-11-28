@@ -71,13 +71,13 @@ fieldset {
 
 .signup-left{
 	text-align:right;
-	width:50%;
+	width:30%;
 }
 
 .signup-right {
 	text-align:left;
-	margin-left: 5px;
-	width:50%;
+	margin-left: 11px;
+	width:70%;
 }
 
 .navbar-nav > li > a {
