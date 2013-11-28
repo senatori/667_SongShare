@@ -29,7 +29,23 @@
               </li>
             </ul>
           </li>
-       <!-- We will need a Fan session check needed here -->
+          
+       <!-- IF signed in as Fan -->
+       <% elsif current_fan %>
+          <li><%= link_to current_fan.name, '#'%> </li>
+          <li id="fat-menu" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_fan %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", signout_path, method: "sign_out" %>
+              </li>
+            </ul>
+          </li>
 
           <!-- THIS HTML is displayed If NOT SIGNED IN as a user of some sort -->
       <% else %> <!-- If NOT SIGNED IN as ARTIST -->

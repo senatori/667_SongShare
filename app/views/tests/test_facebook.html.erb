@@ -10,12 +10,3 @@
   <% end %>
 </div>
 
-<%@songs = Song.all%>
-<%@songs.each do |song|%>
-
-	<p> Hello <%=song['source_url']%> </p>
-	<audio controls> 
-		<source src=<%=song['source_url']%>>
-	</audio>
-<%end%>
-
