@@ -69,6 +69,17 @@ fieldset {
 	width: 200px;
 }
 
+.signup-left{
+	text-align:right;
+	width:50%;
+}
+
+.signup-right {
+	text-align:left;
+	margin-left: 5px;
+	width:50%;
+}
+
 .navbar-nav > li > a {
 	padding-bottom: 7px;
 	padding-top: 7px;

@@ -1,19 +1,3 @@
-<nav class="navbar navbar-default navbar-fixed-top music-nav" role="navigation">
-        
-			<%= image_tag "logo.png", :class => "navbar-left" %>
-                <form class="navbar-form navbar-right" role="search">
-                	<ul class="nav navbar-nav">
-            			<li><a href="#">Sign Up</a></li>
-                        <li class="dropdown">
-        					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
-            		</ul>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </ul>
-    	</nav>
     	<div class="container">
            	<% #provide(:title, 'Artist Sign up') %>
     		<h2>Artist Sign Up</h2>
@@ -32,15 +16,26 @@
        			<!--/Form Validation end -->
 
                 <!-- The actual form. Rails converts this to html -->
-                
-                <div><%= f.label :name %>: <%= f.text_field :name, :class => "signup-fields" %></div>
-                
-                <div><%= f.label :email %>: <%= f.text_field :email, :class => "signup-fields" %></div>
-                    
-                <div><%= f.label :password %>: <%= f.password_field :password, :class => "signup-fields" %></div>
-        		
-                <div><%= f.label :password_confirmation, "Confirmation" %>: <%= f.password_field :password_confirmation, :class => "signup-fields" %></div>
-        		
-                <%= f.submit "Create my account", class: "btn btn-large btn-primary signup-button" %>
+                <table width="500">
+					<tr>
+						<td class="signup-left"><%= f.label :name %></td>
+						<td class="signup-right"><%= f.text_field :name, :class => "signup-fields" %></td>
+					</tr>
+					<tr>
+                		<td class="signup-left"><%= f.label :email %></td>
+						<td class="signup-right"><%= f.text_field :email, :class => "signup-fields" %></td>
+					</tr>
+					<tr>
+                		<td class="signup-left"><%= f.label :password %></td>
+						<td class="signup-right"><%= f.password_field :password, :class => "signup-fields" %></td>
+        			</tr>
+					<tr>
+                		<td class="signup-left"><%= f.label :password_confirmation, "Confirmation" %></td>
+						<td class="signup-right"><%= f.password_field :password_confirmation, :class => "signup-fields" %></td>
+					</tr>
+					<tr>
+                		<td colspan="2"><%= f.submit "Create my account", class: "btn btn-large btn-primary signup-button" %></td>
+					</tr>
+				</table>
             <% end %>
   		</div>
