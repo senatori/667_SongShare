@@ -60,6 +60,15 @@ fieldset {
 	text-align:center;
 	vertical-align:middle;
 }
+
+.signup-button {
+	width: 150px;
+}
+
+.signup-fields {
+	width: 200px;
+}
+
 .navbar-nav > li > a {
 	padding-bottom: 7px;
 	padding-top: 7px;
