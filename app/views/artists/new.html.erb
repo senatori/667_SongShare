@@ -33,18 +33,14 @@
 
                 <!-- The actual form. Rails converts this to html -->
                 
-                <%= f.label :name %>
-                <%= f.text_field :name, :class => "signup-fields" %>
+                <div><%= f.label :name %>: <%= f.text_field :name, :class => "signup-fields" %></div>
                 
-                <%= f.label :email %>
-                <%= f.text_field :email, :class => "signup-fields" %>
+                <div><%= f.label :email %>: <%= f.text_field :email, :class => "signup-fields" %></div>
                     
-                <%= f.label :password %>
-                <%= f.password_field :password, :class => "signup-fields" %>
+                <div><%= f.label :password %>: <%= f.password_field :password, :class => "signup-fields" %></div>
         		
-                <%= f.label :password_confirmation, "Confirmation" %>
-                <%= f.password_field :password_confirmation, :class => "signup-fields" %>
+                <div><%= f.label :password_confirmation, "Confirmation" %>: <%= f.password_field :password_confirmation, :class => "signup-fields" %></div>
         		
-                <%= f.submit "Create my account", class: "btn btn-large btn-primary", :class => "signup-button" %>
+                <%= f.submit "Create my account", class: "btn btn-large btn-primary signup-button" %>
             <% end %>
   		</div>
