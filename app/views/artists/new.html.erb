@@ -1,5 +1,4 @@
-<body>
-    	<nav class="navbar navbar-default navbar-fixed-top music-nav" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top music-nav" role="navigation">
         
 			<%= image_tag "logo.png", :class => "navbar-left" %>
                 <form class="navbar-form navbar-right" role="search">
@@ -33,19 +32,23 @@
        			<!--/Form Validation end -->
 
                 <!-- The actual form. Rails converts this to html -->
-                <%= f.label :name %>
-                <%= f.text_field :name, :size => "40" %>
-        
-                <%= f.label :email %>
-                <%= f.text_field :email %>
-        
-                <%= f.label :password %>
-                <%= f.password_field :password %>
-        
-                <%= f.label :password_confirmation, "Confirmation" %>
-                <%= f.password_field :password_confirmation %>
-        
-                <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+                <tr>
+                	<td><%= f.label :name %></td>
+                	<td><%= f.text_field :name, :size => "40" %></td>
+        		</tr>
+                <tr>
+                	<td><%= f.label :email %></td>
+                	<td><%= f.text_field :email %></td>
+        		</tr>
+                <tr>
+                	<td><%= f.label :password %></td>
+                	<td><%= f.password_field :password %></td>
+        		</tr>
+                <tr>
+                	<td><%= f.label :password_confirmation, "Confirmation" %></td>
+                	<td><%= f.password_field :password_confirmation %></td>
+        		</tr>
+                <tr>
+                	<td><%= f.submit "Create my account", class: "btn btn-large btn-primary" %></td>
             <% end %>
   		</div>
-  	</body>
