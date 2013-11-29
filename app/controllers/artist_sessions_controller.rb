@@ -10,8 +10,8 @@ class ArtistSessionsController < ApplicationController
   #named route: sessions_path
   #purpose: creates a new session
   def create
-    artist = Artist.find_by(email: params[:session][:email].downcase)
-    if (artist && artist.authenticate(params[:session][:password])) #authenticate provided by has_secure_password & bcrypt
+    artist = Artist.find_by(email: params[:artist_session][:email].downcase)
+    if (artist && artist.authenticate(params[:artist_session][:password])) #authenticate provided by has_secure_password & bcrypt
       # Sign the user in and redirect to the user's show page.
       sign_in artist #defined in ArtistSessionHelper
       redirect_to artist
