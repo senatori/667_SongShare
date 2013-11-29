@@ -1,0 +1,64 @@
+    	<div class="container">
+			<script>
+                $('#myAffix').affix({
+                    offset: {
+                        top: 100
+                        , bottom: function () {
+                            return (this.bottom = $('.bs-footer').outerHeight(true))
+                        }
+                    }
+                })
+            </script>
+            <div id="myAffix" data-spy="affix">
+                <a href="#" class="list-group-item album-affix">Album Information</a>
+                <a href="#" class="list-group-item album-affix">Song #1 Information</a>
+                <span>+ Add Another Track</span>
+            </div>
+            <div class="album-edit">
+            	<%= form_for(@album, :html => { :class => "form-horizontal" }) do |f| %>
+                	<fieldset>
+                    	<legend>Album Information</legend>
+                        
+                        <%= f.label :title %>
+                        <%= f.text_field :title, "Title" %>
+                            
+                        <%= f.label :release_date %>
+                        <%= f.text_field :release_date, "Release Date:" %>
+                            
+                        <%= f.label :genre %>
+                        <%= f.text_field :genre, "Genre:" %>
+                            
+                        <%= f.label :credits %>
+                        <%= f.text_field :credits, "Credits:" %>
+                            
+                        <%= f.label :album_artwork_url, "Album Cover:" %>
+                        <%= f.text_field :album_artwork_url %>
+                    </fieldset>
+                
+					<%= fields_for @song do |u| %>
+						<fieldset>
+							<legend>Track #1</legend>
+							
+							<%= u.label :title %>
+							<%= u.text_field :title, "Song Title" %>
+								
+							<%= u.label :featured_artists %>
+							<%= u.text_field :featured_artists, "Featured Artists:" %>
+								
+							<%= u.label :genre %>
+							<%= u.text_field :genre, "Genre:" %>
+							
+							<%= u.label :is_downloadable %>
+							<%= u.check_box :genre, "Genre:" %>
+								
+							<%= u.label :source_url %>
+							<%= u.text_field :source_url, "Upload Track:" %>
+							
+							<% end %>
+							
+							<%= f.submit "Update Album", class: "btn btn-large btn-primary signup-button" %>
+							
+						</fieldset>
+				<% end %>
+      		</div> 
+        </div>

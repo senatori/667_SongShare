@@ -31,6 +31,8 @@ GroupProject::Application.routes.draw do
 
 
   match '/songs', to: 'songs#upload', via: 'post'
+  
+  match '/album_edit', to: 'albums#new', via: 'get'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
