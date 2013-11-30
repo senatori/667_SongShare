@@ -1,4 +1,7 @@
 class Artist < ActiveRecord::Base
+
+  has_many :albums
+  has_many :songs
   
   before_save { self.email = email.downcase }  #makes all emails lowercase db adapters inconsistent with casesens
 
