@@ -25,3 +25,7 @@ doc/
 
 #token related
 .secret
+
+#Ignore my amazon keys yaml file
+/config/amazonawskeys.yml
+config/amazonawskeys.yml

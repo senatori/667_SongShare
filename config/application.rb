@@ -4,6 +4,9 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+
+AMAZONKEYS= YAML.load(File.read(File.expand_path('config/amazonawskeys.yml')))
+
 Bundler.require(:default, Rails.env)
 
 
