@@ -1,71 +1,27 @@
-    	<div class="container">
-			<script>
-                $('#myAffix').affix({
-                    offset: {
-                        top: 100
-                        , bottom: function () {
-                            return (this.bottom = $('.bs-footer').outerHeight(true))
-                        }
-                    }
-                })
-            </script>
-            <div id="myAffix" data-spy="affix">
-                <a href="#" class="list-group-item album-affix">Album Information</a>
-                <a href="#" class="list-group-item album-affix">Song #1 Information</a>
-                <span>+ Add Another Track</span>
-            </div>
-            <!-- added these breaks because menu was covering up forms -->
-            <br><br><br><br><br>
+<div class="container">
+    <script>
+        $('#myAffix').affix({
+            offset: {
+                top: 100
+                , bottom: function () {
+                    return (this.bottom = $('.bs-footer').outerHeight(true))
+                }
+            }
+        })
+    </script>
+    <div id="myAffix" data-spy="affix">
+        <a href="#" class="list-group-item album-affix">Album Information</a>
+        <a href="#" class="list-group-item album-affix">Song #1 Information</a>
+        <span>+ Add Another Track</span>
+    </div>
 
-            <div class="album-edit">
+    <!-- added these breaks because menu was covering up forms -->
+    <br><br><br><br><br>
 
-            	<%= form_for(@album, :html => { :class => "form-horizontal" }) do |f| %>
-                	<fieldset>
-                    	<legend>Album Information</legend>
+    <div class="album-edit">
 
-                        
-                        <%= f.label :title, "Title" %>
-                        <%= f.text_field :title%>
-                            
-                        <%= f.label :release_date, "Release Date" %>
-                        <%= f.text_field :release_date%>
-                            
-                        <%= f.label :genre, "Genre: " %>
-                        <%= f.text_field :genre%>
-                            
-                        <%= f.label :credits, "Credits" %>
-                        <%= f.text_field :credits%>
-                            
-                        <%= f.label :album_artwork_url, "Album Cover:" %>
-                        <%= f.file_field :album_artwork_url %>
+    <%@submit = 'Create'%>
+    <%= render 'album_form' %>
 
-                        <%= f.hidden_field :artist_id, value: @artist.id%>
-                        
-                    </fieldset>
-                
-                <!--
-                    <%= fields_for @song do |u| %>
-						<fieldset>
-							<legend>Track #1</legend>
-							
-							<%= u.label :title, "Song Title"  %>
-							<%= u.text_field :title %>
-								
-							<%= u.label :featured_artists, "Featured Artists:"  %>
-							<%= u.text_field :featured_artists%>
-							
-							<%= u.label :is_downloadable, "Allow Downloads" %>
-							<%= u.check_box :is_downloadable%>
-								
-							<%= u.label :source_url, "Upload Track:"  %>
-							<%= u.file_field :source_url%>
-                            <%end%>
-
-                 -->
-							
-							<%= f.submit "Create Album", class: "btn btn-large btn-primary signup-button" %>
-							
-						</fieldset>
-				<% end %>
-      		</div> 
-        </div>
+    </div> 
+</div>

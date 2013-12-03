@@ -10,10 +10,10 @@ GroupProject::Application.routes.draw do
   get "/tests/test_facebook"
   get "/tests/list_songs"
 
+  resources :songs
   resources :albums
   resources :artists
   resources :artist_sessions, only: [:new, :create, :destroy]
-  #resources :songs
 
   #used for facebook auth
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -30,7 +30,7 @@ GroupProject::Application.routes.draw do
   match '/artist_signout', to: 'artist_sessions#destroy',     via: 'delete'
 
 
-  match '/songs', to: 'songs#upload', via: 'post'
+  #match '/songs', to: 'songs#upload', via: 'post'
   
   match '/album_edit', to: 'albums#new', via: 'get'
 

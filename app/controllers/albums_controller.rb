@@ -1,20 +1,53 @@
 class AlbumsController < ApplicationController
 	
+	#GET albums/new
 	def new
-		@artist = Artist.first
-		@song = Song.new
-		@album = Album.new
+		if(!signed_in?)
+			redirect_to '/artist_signin'	
+		
+		else
+
+			@artist = Artist.find(@current_artist.id)
+			@song = Song.new
+			@album = Album.new
+		end
 	end
 
+	#GET albums/1/edit
+	def edit
+		if(!signed_in?)
+			redirect_to '/artist_signin'
+
+		else
+			@artist = Artist.find(@current_artist.id)
+			@album = Album.find(params['id'])
+			@song = Song.new
+		end
+	end
+
+	#POST /albums
 	def create
-		@artist = Artist.find(album_params['artist_id'])
-		# params['album']['artist'] = {artist: @artist}
-		# puts '********' + params.to_s + '*********'
-		# puts @artist.name + '*******'
+
+		#save album
 		@album = Album.new(album_params())
 		@album.save
-		@song = Song.new
-		render 'new'
+
+		# @artist = Artist.find(@album.artist_id)
+		# @song = Song.new
+		
+		#instantiate a new 'song' object and reload form
+		redirect_to action: 'edit', id: @album.id
+	end
+
+	#PATCH/PUT /albums/1
+	def update
+
+		#save album
+		@album = Album.find(params['id'])
+		@album.update(album_params())
+
+		#instantiate a new 'song' object and reload form
+		redirect_to action: 'edit', id: @album.id
 	end
 
 	private
