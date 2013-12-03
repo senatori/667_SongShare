@@ -1,1 +1,45 @@
-<%= render 'form' %>
+<div class="container">
+	<script>
+	    $('#myAffix').affix({
+	        offset: {
+	            top: 100
+	            , bottom: function () {
+	                return (this.bottom = $('.bs-footer').outerHeight(true))
+	            }
+	        }
+	    })
+	</script>
+	<div id="myAffix" data-spy="affix">
+	    <a href="#" class="list-group-item album-affix">Album Information</a>
+	    <a href="#" class="list-group-item album-affix">Song #1 Information</a>
+	    <span>+ Add Another Track</span>
+	</div>
+	
+	<!-- added these breaks because menu was covering up forms -->
+	<br><br><br><br><br>
+
+	<div class="album-edit">
+
+
+	<!-- Render update form for album info -->
+	<% @url = '/albums/' + @album.id.to_s%>
+	<%@submit = 'Update Album'%>
+	<%= render 'album_form' %>
+
+	<!-- Load all songs for this album -->
+	<%@songs = Song.where(album_id: @album.id)%>
+
+	<!-- Render update form for each existing song -->
+	<%@submit = 'Update Song' %> 
+	<%@songs.each do |song|%>
+		<% @song = song %>
+			<%= render 'songs/song_form'%>
+		<% end %>
+
+	<!-- Render form for a new song -->
+	<%@submit = 'Upload Song'%>
+		<%@song = Song.new%>
+		<%= render 'songs/song_form' %>
+
+	</div> 
+</div>

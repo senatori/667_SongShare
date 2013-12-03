@@ -1,0 +1,25 @@
+<%= form_for @song do |u| %>
+
+	<fieldset>
+		<legend><%=@song.title%></legend>
+		
+		<%= u.label :title, "Song Title"  %>
+		<%= u.text_field :title %>
+			
+		<%= u.label :featured_artists, "Featured Artists:"  %>
+		<%= u.text_field :featured_artists%>
+		
+		<%= u.label :is_downloadable, "Allow Downloads" %>
+		<%= u.check_box :is_downloadable%>
+			
+		<%= u.label :file, "Upload Track:"  %>
+		<%= u.file_field :file%>
+
+        <%= u.hidden_field :artist_id, value: @artist.id%>
+
+        <%= u.hidden_field :album_id, value: @album.id %>
+
+        <%= u.submit @submit, class: "btn btn-large btn-primary signup-button" %>
+
+	</fieldset>
+<%end%>
