@@ -1,20 +1,30 @@
 class AlbumsController < ApplicationController
 	
+	#GET albums/new
 	def new
 		@artist = Artist.first
 		@song = Song.new
 		@album = Album.new
 	end
 
+	#GET albums/1/edit
+	def edit
+		@album = Album.find(params['id'])
+		@artist = Artist.find(@album.artist_id)
+		@song = Song.new
+
+		@submit = 'Update Album'
+	end
+
 	def create
-		@artist = Artist.find(album_params['artist_id'])
-		# params['album']['artist'] = {artist: @artist}
-		# puts '********' + params.to_s + '*********'
-		# puts @artist.name + '*******'
+
+		#save album
 		@album = Album.new(album_params())
 		@album.save
-		@song = Song.new
-		render 'new'
+
+		@submit = 'Create'
+		#instantiate a new 'song' object and reload form
+		render 'edit'
 	end
 
 	private
