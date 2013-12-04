@@ -25,6 +25,11 @@
                 		<td class="signup-left"><%= f.label :email %></td>
 						<td class="signup-right"><%= f.text_field :email, :class => "signup-fields" %></td>
 					</tr>
+                    <tr>
+                        <td class="signup-left"><%= f.label :picture %>(Optional)</td>
+                        <td class="signup-right"><%= f.file_field :picture %></td>
+                    </tr>
+
 					<tr>
                 		<td class="signup-left"><%= f.label :password %></td>
 						<td class="signup-right"><%= f.password_field :password, :class => "signup-fields" %></td>
