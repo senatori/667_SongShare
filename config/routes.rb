@@ -23,7 +23,7 @@ GroupProject::Application.routes.draw do
   #Artist Authentication
   #match 'artists/new', to: 'artists#new', via: 'get'
   match 'artist_sign_up', to: 'artists#new', via: 'get'
-  match 'artists', to: 'artists#create', via: 'post'
+  # match 'artists', to: 'artists#create', via: 'post'
 
   #Artist Sign In Session
   match '/artist_signin',  to: 'artist_sessions#new',         via: 'get'

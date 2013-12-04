@@ -5,6 +5,13 @@ class ArtistsController < ApplicationController
     @artist = Artist.new
   end
 
+  #GET artists/1
+  def show #will be called after artist sign up and artist sign in
+    @artist = Artist.find(params[:id]) #Artist.find(id)
+    #find all albums that belong to this artist
+    @albums = Album.where(artist_id: params[:id])
+  end
+
   def create
 
     @artist = Artist.new(name: params[:artist][:name], email: params[:artist][:email],
@@ -59,9 +66,4 @@ class ArtistsController < ApplicationController
   #  params.require(:artist).permit(:name, :email, :password,
   #                               :password_confirmation, :picture)
   #end
-
-  def show #will be called after artist sign up and artist sign in
-    @user = Artist.find(params[:id])  #Artist.find(id)
-
-  end
 end
