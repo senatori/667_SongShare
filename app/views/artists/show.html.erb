@@ -16,6 +16,12 @@
                 	<%@albums.each do |album| %>
                     <td>
                         <%= link_to (image_tag "album_cover.jpg", :class => "img-thumbnail"), '/albums/'+album.id.to_s %>
+
+                        <!-- check if this page belongs to signed in artist -->
+                        <%if (signed_in? && @artist.id == current_artist.id) %>
+                            <h6><%= link_to "Edit Album", '/albums/'+album.id.to_s + '/edit' %></h6>
+                        <%end%>
+
                         <h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
                         <h6> <%=album.release_date%></h6>
                     </td>
