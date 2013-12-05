@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-	
+  include AlbumsHelper
 	#GET albums/new
 	def new
 		if(!signed_in?)
@@ -36,8 +36,14 @@ class AlbumsController < ApplicationController
 	def create
 
 		#save album
-		@album = Album.new(album_params())
+    temp_hash= album_params()
+    image_upload_io= temp_hash[:album_artwork_url]
+    temp_hash.delete(:album_artwork_url)
+		@album = Album.new(temp_hash)
 		@album.save
+
+    aws_album_art_upload(image_upload_io, "new")
+
 		
 		#instantiate a new 'song' object and reload form
 		redirect_to action: 'edit', id: @album.id
@@ -46,9 +52,18 @@ class AlbumsController < ApplicationController
 	#PATCH/PUT /albums/1
 	def update
 
+    #housekeeping. we used :album_artwork_url to hold a .mp3 file but model expects a string
+    temp_hash= album_params()
+    image_upload_io= temp_hash[:album_artwork_url]
+    temp_hash.delete(:album_artwork_url)
+
 		#save album
 		@album = Album.find(params['id'])
-		@album.update(album_params())
+		@album.update(temp_hash)
+
+    aws_album_art_upload(image_upload_io, "new")
+
+
 
 		#instantiate a new 'song' object and reload form
 		redirect_to action: 'edit', id: @album.id
