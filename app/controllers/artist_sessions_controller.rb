@@ -14,7 +14,7 @@ class ArtistSessionsController < ApplicationController
     if (artist && artist.authenticate(params[:artist_session][:password])) #authenticate provided by has_secure_password & bcrypt
       # Sign the user in and redirect to the user's show page.
       sign_in artist #defined in ArtistSessionHelper
-      redirect_to artist
+      redirect_to '/artists/' + artist.id.to_s
 
     else
       # Create an error message and re-render the signin form.
