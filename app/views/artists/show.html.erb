@@ -15,8 +15,8 @@
 
                 	<%@albums.each do |album| %>
                     <td>
-                        <%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-                        <h4><%=album.title%></h4>
+                        <%= link_to (image_tag "album_cover.jpg", :class => "img-thumbnail"), '/albums/'+album.id.to_s %>
+                        <h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
                         <h6> <%=album.release_date%></h6>
                     </td>
                     <%end%>

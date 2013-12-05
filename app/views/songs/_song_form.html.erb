@@ -2,6 +2,9 @@
 
 	<fieldset>
 		<legend><%=@song.title%></legend>
+
+		<%= u.label :track_number, "Track Number"  %>
+		<%= u.text_field :track_number %>
 		
 		<%= u.label :title, "Song Title"  %>
 		<%= u.text_field :title %>

@@ -5,20 +5,26 @@ class SongsController < ApplicationController
 		# Get an instance of the S3 interface.
 		s3 = AWS::S3.new
 
-		tempSong = song_params()
-		# Upload file.
-		if(!tempSong[:file].nil?)
-			s3obj = s3.buckets['csc667musicshare'].objects[song_params[:title] + 
-					".mp3"].write(song_params[:file], acl: :public_read)
+		file = song_params[:file]
+		tempParams = song_params
+		tempParams.delete(:file)
 
-			# Save public url of newly uploaded file
-			uri = s3obj.url_for(:read)
-			tempSong[:source_url] = uri.scheme + '://' + uri.host + uri.path
-			tempSong.delete(:file)
+		@song = Song.new(tempParams)
+
+		if @song.save
+
+			# Upload file
+			if(!file.nil?)
+				s3obj = s3.buckets['csc667musicshare'].objects[@song.id.to_s + 
+						".mp3"].write(file, acl: :public_read)
+
+				# Save public url of newly uploaded file
+				uri = s3obj.url_for(:read)
+				url = uri.scheme + '://' + uri.host + uri.path
+				@song.update(source_url: url)
+			end
+			
 		end
-		#add song data to database
-		@song = Song.new(tempSong)
-		@song.save
 
 		redirect_to '/albums/' + @song.album_id.to_s + '/edit' 
 	end
@@ -26,16 +32,19 @@ class SongsController < ApplicationController
 	#PATCH/PUT /songs/1
 	def update
 
+		@song = Song.find(params['id'])
+
 		# Get an instance of the S3 interface.
 		s3 = AWS::S3.new
 
 		tempSong = song_params()
-		# Upload file.
+
+		# Upload file, if a new file is being uploaded
 		if(!tempSong[:file].nil?)
 
 			#*** Put in code to delete previous upload *****#
 
-			s3obj = s3.buckets['csc667musicshare'].objects[song_params[:title] + 
+			s3obj = s3.buckets['csc667musicshare'].objects[@song.id.to_s + 
 					".mp3"].write(song_params[:file], acl: :public_read)
 
 			# Save public url of newly uploaded file
@@ -45,7 +54,6 @@ class SongsController < ApplicationController
 		end
 
 		#update song data in database
-		@song = Song.find(params['id'])
 		@song.update(tempSong)
 
 		#instantiate a new 'song' object and reload form
@@ -59,6 +67,6 @@ class SongsController < ApplicationController
   	def song_params
     	params.require(:song).permit(:file, :title, :featured_artists, :is_downloadable,
                                  :track_number, :source_url, :album_id, :artist_id)
-  end
+  	end
 
 end

@@ -1,0 +1,41 @@
+	<div class="container">
+      <table width="800" border="0" cellspacing="0" cellpadding="0"  class="album-info">
+	    <tr>
+	      <td rowspan="2"><%= image_tag @album.album_artwork_url, :class => "img-thumbnail" %></td>
+	      <td><h2> <%=@album.title%> </h2></td>
+        </tr>
+	    <tr>
+	      <td><h4> By <%=@artist.name%> </h4></td>
+        </tr>
+      </table>
+      <fieldset>
+    <legend align="left">Songs</legend>
+      </fieldset>
+      <table width="500" border="1" cellspacing="0" cellpadding="0"  class="album-info">
+
+      <%@songs.each do |song|%>
+        <tr>
+        <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+        <td width="380" class="song-title"><b> <%=song.track_number%>. <%=song.title%></b></td>
+        <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+        <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+        </tr>
+      <%end%>
+
+      <!-- <tr>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+      <td width="380" class="song-title"><b>2. Dirty Bucket</b></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+      </tr>
+      <tr>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+      <td width="380" class="song-title"><b>3. Don't go into the dirty closet</b></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+      </tr> -->
+      </table>
+      <span class="song-credits">
+      	Credits: <%=@album.credits%>
+      </span>
+    </div>

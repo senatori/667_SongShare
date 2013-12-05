@@ -13,6 +13,12 @@ class AlbumsController < ApplicationController
 		end
 	end
 
+	#GET albums/1
+	def show
+		@album = Album.find(params[:id])
+		@songs = Song.where(album_id: params[:id])
+		@artist = Artist.find(@album.artist_id)
+	end
 	#GET albums/1/edit
 	def edit
 		if(!signed_in?)
