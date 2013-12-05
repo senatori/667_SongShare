@@ -50,14 +50,14 @@ class ArtistsController < ApplicationController
         photo_obj= s3.buckets['songshareartist'].objects[key]
         photo_obj.write(:file => img_full_path, :acl=> :public_read)
 
-        #bucket= s3.buckets['songshareartist'].objects[key]
-        #bucket.acl= :public_read
 
         # Save public url of newly uploaded file
         uri = photo_obj.url_for(:read)
         img_url = uri.scheme + '://' + uri.host + uri.path
 
         @artist.update_attribute(:photo_url, img_url)
+
+        File.delete(img_full_path) #delete the file from rails server (Heroku) when were done with it
 
       else #if no album art specified, set default
         photo_obj= s3.buckets['songshareartist'].objects['default.jpg']
