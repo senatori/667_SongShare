@@ -26,9 +26,6 @@
 	<%@submit = 'Update Album'%>
 	<%= render 'album_form' %>
 
-	<!-- Load all songs for this album -->
-	<%@songs = Song.where(album_id: @album.id)%>
-
 	<!-- Render update form for each existing song -->
 	<%@submit = 'Update Song' %> 
 	<%@songs.each do |song|%>

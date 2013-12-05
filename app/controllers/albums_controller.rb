@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
 	#GET albums/1
 	def show
 		@album = Album.find(params[:id])
-		@songs = Song.where(album_id: params[:id])
+		@songs = Song.where(album_id: params[:id]).order(:track_number)
 		@artist = Artist.find(@album.artist_id)
 	end
 	#GET albums/1/edit
@@ -27,6 +27,7 @@ class AlbumsController < ApplicationController
 		else
 			@artist = Artist.find(@current_artist.id)
 			@album = Album.find(params['id'])
+			@songs = Song.where(album_id: params[:id]).order(:track_number)
 			@song = Song.new
 		end
 	end
@@ -37,9 +38,6 @@ class AlbumsController < ApplicationController
 		#save album
 		@album = Album.new(album_params())
 		@album.save
-
-		# @artist = Artist.find(@album.artist_id)
-		# @song = Song.new
 		
 		#instantiate a new 'song' object and reload form
 		redirect_to action: 'edit', id: @album.id
