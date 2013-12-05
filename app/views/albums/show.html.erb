@@ -15,25 +15,15 @@
 
       <%@songs.each do |song|%>
         <tr>
-        <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+        <td class="play" width="40" class="song-icons">
+          <audio preload="metadata"> <source src=<%=song.source_url%>> </audio>
+          <span class="glyphicon glyphicon-play"></span></td>
         <td width="380" class="song-title"><b> <%=song.track_number%>. <%=song.title%></b></td>
         <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
         <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
         </tr>
       <%end%>
 
-      <!-- <tr>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
-      <td width="380" class="song-title"><b>2. Dirty Bucket</b></td>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
-      </tr>
-      <tr>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
-      <td width="380" class="song-title"><b>3. Don't go into the dirty closet</b></td>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
-      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
-      </tr> -->
       </table>
       <span class="song-credits">
       	Credits: <%=@album.credits%>
