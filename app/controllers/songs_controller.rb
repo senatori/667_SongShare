@@ -3,6 +3,9 @@ class SongsController < ApplicationController
 	#POST /songs
 	def create
 		# Get an instance of the S3 interface.
+		AWS.config(access_key_id: 'AKIAILFH7M7B2NFG7SLA',
+               secret_access_key: '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')
+
 		s3 = AWS::S3.new
 
 		file = song_params[:file]
@@ -35,6 +38,8 @@ class SongsController < ApplicationController
 		@song = Song.find(params['id'])
 
 		# Get an instance of the S3 interface.
+		AWS.config(access_key_id: 'AKIAILFH7M7B2NFG7SLA',
+               secret_access_key: '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')
 		s3 = AWS::S3.new
 
 		tempSong = song_params()

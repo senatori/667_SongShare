@@ -21,6 +21,11 @@
         <td width="380" class="song-title"><b> <%=song.track_number%>. <%=song.title%></b></td>
         <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
         <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+
+        <!-- show add to playlist '+' button if fan is logged in -->
+        <%if current_fan %>
+          <td width="40" class="song-icons"><span class="glyphicon glyphicon-plus"></span></td>
+          <%end%>
         </tr>
       <%end%>
 
