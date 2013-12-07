@@ -1,0 +1,33 @@
+ 
+
+    <div class="container">
+      <table width="800" border="0" cellspacing="0" cellpadding="0">
+	    <tr>
+
+	      <td class="artist-cover"><%= image_tag current_fan.image_url, :class => "img-thumbnail" %></td>
+	      <td class="artist-name"><h2><%=current_fan.name%></h2></td>
+        </tr>
+      </table>
+      <fieldset>
+<legend align="left">Playlists</legend>
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+            	<tr class="albums">
+                	<td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+				  <h4>Sunday Drive</h4></td>
+                    <td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Sunday Drive</h4>
+                  </td>
+                    <td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Sunday Drive</h4>
+                  </td>
+                    <td>
+                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+						<h4>Sunday Drive</h4>
+                    </td>
+           	  </tr>
+          </table>
+        </fieldset>       
+        </div>

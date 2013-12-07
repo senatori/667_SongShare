@@ -6,6 +6,7 @@ class Fan < ActiveRecord::Base
       fan.provider = auth.provider
       fan.uid = auth.uid
       fan.name = auth.info.name
+      fan.image_url = auth.info.image
       fan.oauth_token = auth.credentials.token
       fan.oauth_expires_at = Time.at(auth.credentials.expires_at)
       fan.save!

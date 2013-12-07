@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128072633) do
+ActiveRecord::Schema.define(version: 20131207050052) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 20131128072633) do
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
-
-  create_table "appointments", force: true do |t|
-    t.integer  "year"
-    t.integer  "month"
-    t.integer  "day"
-    t.integer  "hour"
-    t.integer  "minute"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -59,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131128072633) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   create_table "followed_artists", force: true do |t|
