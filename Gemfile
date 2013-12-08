@@ -5,7 +5,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 
-gem 'mysql'
+group :development do 
+	gem 'mysql'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -42,6 +44,11 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
 gem 'aws-sdk'
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
