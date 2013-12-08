@@ -15,6 +15,12 @@ $( document ).ready(function() {
 
   		});
 
+		var allowClose = false;
+		$('#myDropdown').on({
+		    "shown.bs.dropdown": function() { allowClose = false; },
+		    "click":             function() { allowClose = true; },
+		    "hide.bs.dropdown":  function() { if (!allowClose) return false; }
+		});
   	//if pause icon is clicked
   	// $('.glyphicon-pause').click(function() {
 

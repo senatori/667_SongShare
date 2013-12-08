@@ -24,7 +24,16 @@
 
         <!-- show add to playlist '+' button if fan is logged in -->
         <%if current_fan %>
-          <td width="40" class="song-icons"><span class="glyphicon glyphicon-plus"></span></td>
+          <td width="40" class="song-icons">
+		  	<div id="myDropdown" class="dropdown">
+				<a id="dLabel" role="button" href="#" data-toggle="dropdown" data-target="#" >
+				<span class="glyphicon glyphicon-plus"></span>
+				</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li>This is where we would put the forms. We'll need</br> a dropdown to choose playlist or an "add to new playlist" form maker.</li>
+				</ul>
+			</div>
+		  </td>
           <%end%>
         </tr>
       <%end%>
