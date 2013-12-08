@@ -1,24 +1,30 @@
-<% provide(:title, "Sign in") %>
+<div class="container">
 
+<% provide(:title, "Sign In") %>
 
 <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
-<h1>Artist Sign In</h1>
+<h1>Sign In</h1>
 
-<div class="container">
+
   <div class="span6 offset3">
     <%= form_for(:artist_session, url: artist_sessions_path, :html => { :class => "form-horizontal" }) do |f| %>
 
-
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+		<table width="500">
+			<tr>
+        		<td class="signup-left"><%= f.label :email %></td>
+        		<td class="signup-right"><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+        		<td class="signup-left"><%= f.label :password %></td>
+        		<td class="signup-right"><%= f.password_field :password %></td>
+			</tr>
+			<tr>
+        		<td colspan="2"><%= f.submit "Sign in", class: "btn btn-large btn-primary" %></td>
+			</tr>
+		</table>
     <% end %>
 
     <p>Don't have an Artist account? <%= link_to "Sign up now!", artist_sign_up_path %></p>
