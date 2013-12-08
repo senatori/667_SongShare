@@ -1,14 +1,92 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Place all the styles related to the Pages controller here. */
+/* They will automatically be included in application.css. */
+/* You can use Sass (SCSS) here: http://sass-lang.com/ */
+
+
+/* Default + Container Class CSS */
+
+body {
+	background-color:#C1C1FF;
+	font-family: 'Oswald', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Oswald', sans-serif;
+}
+.container {
+	padding-top: 70px;
+  	background-color:#C1C1FF;
+	text-align:center;
+}
 
 legend{
 	font-size:18px;
 	text-align:left;
+	border-bottom-color:#333;
 }
 
 fieldset {
 	text-align:left;
+}
+
+footer {
+	height: 200px;
+	text-align: center;
+}
+
+/* Navbar CSS */
+
+.navbar {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.navbar-custom {
+	background: #022072;
+	background: -moz-linear-gradient(top,  #022072 0%, #001156 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#022072), color-stop(100%,#001156));
+	background: -webkit-linear-gradient(top,  #022072 0%,#001156 100%);
+	background: -o-linear-gradient(top,  #022072 0%,#001156 100%);
+	background: -ms-linear-gradient(top,  #022072 0%,#001156 100%);
+	background: linear-gradient(to bottom,  #022072 0%,#001156 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022072', endColorstr='#001156',GradientType=0 );
+	border-bottom-style:solid;
+	border-width:medium
+	border-top-style:none;
+	border-left-style:none;
+	border-right-style:none;
+	border-color:#003;
+}
+
+.navbar-nav > li > a {
+	padding-bottom: 7px;
+	padding-top: 7px;
+	vertical-align:middle;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color:#FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color:#CCC;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color:#FFF;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color:#FFF;
+	background-color:rgba(0,0,0,0.3);
+}
+
+.navbar-default .navbar-nav > .dropdown > a .caret {
+	border-top-color:#FFF;
+}
+
+.navbar-default .navbar-nav > .dropdown > a:hover .caret, .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+	border-top-color:#CCC;
 }
 
 .top-albums {
@@ -71,37 +149,39 @@ fieldset {
 
 .signup-left{
 	text-align:right;
-	width:30%;
+	width:50%;
 }
 
 .signup-right {
 	text-align:left;
-	margin-left: 11px;
-	width:70%;
-}
-
-.navbar-nav > li > a {
-	padding-bottom: 7px;
-	padding-top: 7px;
-	vertical-align:middle;
+	padding-left: 5px;
+	width:50%;
 }
 
 table {
 	margin:auto;
 }
 
-.container {
-	padding-top: 70px;
-  	background-color: #f8f8f8;
-	border:double;
-	border-color: #e7e7e7;
-	text-align:center;
+#myAffix.affix-top {
+    position: static;
+  	margin-top:70px;
+  	width:228px;
+}
+  
+#myAffix.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
 }
 
-.navbar{
-	margin-left:auto;
-	margin-right:auto;
-	border-style:double;
-	border-width:medium;
-	border-top-style:none;
+.affix,.affix-top {
+   position:static;
+}
+
+.album-edit {
+	padding-left: 238px;
+}
+
+.album-affix{
+	padding: 5px 10px;
 }
