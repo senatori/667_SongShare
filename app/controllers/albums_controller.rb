@@ -51,12 +51,13 @@ class AlbumsController < ApplicationController
     aws_album_art_upload(image_upload_io, "new")
 
 		
-		#instantiate a new 'song' object and reload form
-		redirect_to action: 'edit', id: @album.id
+		#reload form
+		redirect_to action: 'edit', id: params['id']
 	end
 
 	#PATCH/PUT /albums/1
 	def update
+		@album = Album.find(params['id'])
 
     #housekeeping. we used :album_artwork_url to hold a .mp3 file but model expects a string
     temp_hash= album_params()
@@ -64,15 +65,15 @@ class AlbumsController < ApplicationController
     temp_hash.delete(:album_artwork_url)
 
 		#save album
-		@album = Album.find(params['id'])
 		@album.update(temp_hash)
 
     aws_album_art_upload(image_upload_io, "new")
 
 
 
-		#instantiate a new 'song' object and reload form
-		redirect_to action: 'edit', id: @album.id
+		#reload form
+		redirect_to action: 'edit', id: params['id']
+
 	end
 
 	private
