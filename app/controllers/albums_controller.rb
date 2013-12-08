@@ -18,6 +18,12 @@ class AlbumsController < ApplicationController
 		@album = Album.find(params[:id])
 		@songs = Song.where(album_id: params[:id]).order(:track_number)
 		@artist = Artist.find(@album.artist_id)
+
+		#if fan is logged in, load playlist for "add to playlist" function
+		if current_fan
+			@playlists = Playlist.where(fan_id: current_fan.id)
+			@new_playlist = Playlist.new
+		end
 	end
 	#GET albums/1/edit
 	def edit

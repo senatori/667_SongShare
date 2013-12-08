@@ -10,6 +10,7 @@ GroupProject::Application.routes.draw do
   get "/tests/test_facebook"
   get "/tests/list_songs"
 
+  resources :playlists
   resources :fans
   resources :songs
   resources :albums
