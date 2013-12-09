@@ -22,7 +22,7 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_artist %></li>
+              <li><%= link_to "Profile", 'artists/' + current_artist.id.to_s %></li>
               <li><%= link_to "Settings", '#' %></li>
               <li class="divider"></li>
               <li>
@@ -39,7 +39,7 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_fan %></li>
+              <li><%= link_to "Profile", 'fans/' + current_fan.id.to_s %></li>
               <li><%= link_to "Settings", '#' %></li>
               <li class="divider"></li>
               <li>
