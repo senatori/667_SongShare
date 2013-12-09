@@ -2,7 +2,7 @@
       <table width="800" border="0" cellspacing="0" cellpadding="0">
 	    <tr>
 
-	      <td class="artist-cover"><%= image_tag current_fan.image_url, :class => "img-thumbnail" %></td>
+	      <td class="artist-cover"><%= image_tag current_fan.image_url, :class => "img-thumbnail"%></td>
 	      <td class="artist-name"><h2><%=current_fan.name%></h2></td>
         </tr>
       </table>
@@ -12,10 +12,20 @@
             	<tr class="albums">
 
                 <!-- show fan's playlists -->
+                <%count =0%>
                 <%@playlists.each do |playlist|%>
+                    <!-- restrict rows to show only 4 playlists per row -->
+                    <%if count % 4 == 0%>
+                        <tr class="albums">
+                    <%end%>
                                 	
                     <td><%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
 				            <h4><%= link_to playlist.title, '/playlists/' + playlist.id.to_s%></h4></td>
+
+                    <%count += 1%>
+                    <%if count % 4 == 0%>
+                        </tr>
+                    <%end%>
                 <%end%>
 
            	  </tr>

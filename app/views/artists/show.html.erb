@@ -11,11 +11,17 @@
       <fieldset>
         	<legend align="left">Albums</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-            	<tr class="albums">
 
+                  <%count = 0%>
                 	<%@albums.each do |album| %>
+
+                  <!-- restrict rows to show only 4 albums per row -->
+                    <%if count % 4 == 0%>
+                        <tr class="albums">
+                    <%end%>
                     <td>
-                        <%= link_to (image_tag "album_cover.jpg", :class => "img-thumbnail"), '/albums/'+album.id.to_s %>
+                        <%= link_to (image_tag "album_cover.jpg", width: '175', height: '175', :class => "img-thumbnail"), 
+                            '/albums/' + album.id.to_s %>
 
                         <!-- check if this page belongs to signed in artist -->
                         <%if (signed_in? && @artist.id == current_artist.id) %>
@@ -25,7 +31,23 @@
                         <h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
                         <h6> <%=album.release_date%></h6>
                     </td>
+                    <%count += 1%>
+                    <%if count % 4 == 0%>
+                        </tr>
                     <%end%>
+                <%end%>
+
+                <!-- link to create new album -->
+                  <%if (signed_in? && @artist.id == current_artist.id) %>
+                    <%if count%4 == 0%>
+                        <tr class="albums">
+                    <%end%>
+                      <td>
+                        <%= link_to('/albums/new') do %>
+                          <div class='new_album'> <p>Create New Album</p></div>
+                        <%end%>
+                      </td>
+                  <%end%>
            	  </tr>
           </table>
         </fieldset>
