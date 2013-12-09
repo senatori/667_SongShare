@@ -1,5 +1,20 @@
 class PlaylistsController < ApplicationController
 
+	def show
+		#find playlist by given 'id'
+		@playlist = Playlist.find(params['id'])
+
+		#find fan who created playlist
+		@fan = Fan.find(@playlist.fan_id)
+
+		#find songs that belong to playlist
+		@songs = Array.new
+		playlist_songs = PlaylistSong.where(playlist_id: @playlist.id)
+		playlist_songs.each do |playlist_song|
+			song = Song.find(playlist_song.song_id)
+			@songs.push(song)
+		end
+	end
 	#POST playlists/
 	def create
 		@playlist = Playlist.new(fan_id: current_fan.id, title: params[:playlist]['title'])

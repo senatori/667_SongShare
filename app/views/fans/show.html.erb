@@ -10,21 +10,14 @@
 <legend align="left">Playlists</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
             	<tr class="albums">
-                	<td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-				  <h4>Sunday Drive</h4></td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Sunday Drive</h4>
-                  </td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Sunday Drive</h4>
-                  </td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Sunday Drive</h4>
-                    </td>
+
+                <!-- show fan's playlists -->
+                <%@playlists.each do |playlist|%>
+                                	
+                    <td><%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
+				            <h4><%= link_to playlist.title, '/playlists/' + playlist.id.to_s%></h4></td>
+                <%end%>
+
            	  </tr>
           </table>
         </fieldset>       

@@ -1,0 +1,44 @@
+    <div class="container">
+      <table width="800" border="0" cellspacing="0" cellpadding="0"  class="album-info">
+	    <tr>
+	      <td rowspan="2"><%= image_tag "album_cover.jpg", :class => "img-thumbnail" %></td>
+	      <td><h2><%=@playlist.title%></h2></td>
+        </tr>
+	    <tr>
+	      <td><h4> By  <%=@fan.name%></h4></td>
+        </tr>
+      </table>
+      <fieldset>
+    <legend align="left">Songs</legend>
+      </fieldset>
+      <table width="500" border="1" cellspacing="0" cellpadding="0"  class="album-info">
+
+        <!-- display all songs -->
+        <%@songs.each do |song|%>
+          <tr>
+          <td class = "play" width="40" class="song-icons">
+            <audio preload="metadata"> <source src=<%=song.source_url%>> </audio>
+            <span class="glyphicon glyphicon-play"></span></td>
+          <td width="380" class="song-title"><b>1. <%=song.title%> 
+            <span class="playlist-artist">- <%=Artist.find(song.album_id).name%></span></b></td>
+          <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+          <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+          </tr>
+       <%end%>
+
+
+
+      <!-- <tr>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+      <td width="380" class="song-title"><b>2. Dirty Bucket <span class="playlist-artist">- Gatormouth</span></b></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+      </tr>
+      <tr>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-play"></span></td>
+      <td width="380" class="song-title"><b>3. Don't go into the dirty closet <span class="playlist-artist">- Gatormouth</span></b></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-cloud-download"></span></td>
+      <td width="40" class="song-icons"><span class="glyphicon glyphicon-new-window"></span></td>
+      </tr> -->
+      </table>
+      </div>
