@@ -1,26 +1,32 @@
 <%= form_for(@album, url: @url, :html => { :class => "form-horizontal" }) do |f| %>
 	<fieldset>
     	<legend>Album Information</legend>
-
-        
-        <%= f.label :title, "Title" %>
-        <%= f.text_field :title%>
-            
-        <%= f.label :release_date, "Release Date" %>
-        <%= f.text_field :release_date%>
-            
-        <%= f.label :genre, "Genre: " %>
-        <%= f.text_field :genre%>
-            
-        <%= f.label :credits, "Credits" %>
-        <%= f.text_field :credits%>
-            
-        <%= f.label :album_artwork_url, "Album Cover:" %>
-        <%= f.file_field :album_artwork_url %>
-
-        <%= f.hidden_field :artist_id, value: @artist.id%>
-
-        <%= f.submit @submit, class: "btn btn-large btn-primary signup-button" %>
+		<%= f.hidden_field :artist_id, value: @artist.id%>
+        <table width="500">
+			<tr>
+        		<td class="signup-left"><%= f.label :title, "Title" %></td>
+        		<td class="signup-right"><%= f.text_field :title%></td>
+			</tr>
+			<tr>
+        		<td class="signup-left"><%= f.label :release_date, "Release Date" %></td>
+        		<td class="signup-right"><%= f.text_field :release_date%></td>
+            </tr>
+			<tr>
+        		<td class="signup-left"><%= f.label :genre, "Genre: " %></td>
+        		<td class="signup-right"><%= f.text_field :genre%></td>
+            </tr>
+			<tr>
+        		<td class="signup-left"><%= f.label :credits, "Credits" %></td>
+        		<td class="signup-right"><%= f.text_field :credits%></td>
+            </tr>
+			<tr>
+        		<td class="signup-left"><%= f.label :album_artwork_url, "Album Cover:" %></td>
+        		<td class="signup-right"><%= f.file_field :album_artwork_url %></td>
+			</tr>
+			<tr>
+        		<td colspan="2"><%= f.submit @submit, class: "btn btn-large btn-primary signup-button" %></td>
+			</tr>
+		</table>
     </fieldset>
 <%end%>
 

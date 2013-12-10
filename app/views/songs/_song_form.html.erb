@@ -2,27 +2,32 @@
 
 	<fieldset>
 		<legend><%=@song.title%></legend>
-
-		<%= u.label :track_number, "Track Number"  %>
-		<%= u.text_field :track_number %>
-		
-		<%= u.label :title, "Song Title"  %>
-		<%= u.text_field :title %>
-			
-		<%= u.label :featured_artists, "Featured Artists:"  %>
-		<%= u.text_field :featured_artists%>
-		
-		<%= u.label :is_downloadable, "Allow Downloads" %>
-		<%= u.check_box :is_downloadable%>
-			
-		<%= u.label :file, "Upload Track:"  %>
-		<%= u.file_field :file%>
-
-        <%= u.hidden_field :artist_id, value: @artist.id%>
-
+		<%= u.hidden_field :artist_id, value: @artist.id%>
         <%= u.hidden_field :album_id, value: @album.id %>
-
-        <%= u.submit @submit, class: "btn btn-large btn-primary signup-button" %>
-
+		<table width="500">
+			<tr>
+				<td class="signup-left"><%= u.label :track_number, "Track Number"  %></td>
+				<td class="signup-right"><%= u.text_field :track_number %></td>
+			</tr>
+			<tr>		
+				<td class="signup-left"><%= u.label :title, "Song Title"  %></td>
+				<td class="signup-right"><%= u.text_field :title %></td>
+			</tr>
+			<tr>			
+				<td class="signup-left"><%= u.label :featured_artists, "Featured Artists:"  %></td>
+				<td class="signup-right"><%= u.text_field :featured_artists%></td>
+			</tr>
+			<tr>		
+				<td class="signup-left"><%= u.label :is_downloadable, "Allow Downloads" %></td>
+				<td class="signup-right"><%= u.check_box :is_downloadable%></td>
+			</tr>
+			<tr>			
+				<td class="signup-left"><%= u.label :file, "Upload Track:"  %></td>
+				<td class="signup-right"><%= u.file_field :file%></td>
+			</tr>
+			<tr>
+        		<td colspan="2"><%= u.submit @submit, class: "btn btn-large btn-primary signup-button" %></td>
+			</tr>
+		</table>
 	</fieldset>
 <%end%>
