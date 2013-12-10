@@ -11,32 +11,71 @@
 	</script>
 	<div id="myAffix" data-spy="affix">
 	    <a href="#" class="list-group-item album-affix">Album Information</a>
-	    <a href="#" class="list-group-item album-affix">Song #1 Information</a>
-	    <span>+ Add Another Track</span>
+		<%@songs.each do |song|%>
+	    	<a href="#<%= song.track_number %>" class="list-group-item album-affix">Song #<%= song.track_number %> Information</a>
+		<% end %>
+	    <!-- <span>+ Add Another Track</span> -->
 	</div>
 	
 	<!-- added these breaks because menu was covering up forms -->
 	<br><br><br><br><br>
 
 	<div class="album-edit">
-
-
+		<div class="panel-group" id="accordion">
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+			  	<a data-toggle="collapse" data-parent="#accordion" href="#album">
+			  		Album Title
+				</a>
+      		  </h4>
+    		</div>
+    	  	<div id="album" class="panel-collapse collapse">
+      		  <div class="panel-body">
 	<!-- Render update form for album info -->
 	<% @url = '/albums/' + @album.id.to_s%>
 	<%@submit = 'Update Album'%>
 	<%= render 'album_form' %>
+			  </div>
+            </div>
+          </div>
 
 	<!-- Render update form for each existing song -->
 	<%@submit = 'Update Song' %> 
 	<%@songs.each do |song|%>
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+			  	<a data-toggle="collapse" data-parent="#accordion" href="#<%= song.track_number %>">
+					<%= song.title %>
+				</a>
+      		  </h4>
+    		</div>
+    	  	<div id="<%= song.track_number %>" class="panel-collapse collapse">
+      		  <div class="panel-body">
 		<% @song = song %>
 			<%= render 'songs/song_form'%>
+			  </div>
+            </div>
+          </div>
 		<% end %>
-
+		<div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+			  	<a data-toggle="collapse" data-parent="#accordion" href="#new">
+					New Song
+				</a>
+      		  </h4>
+    		</div>
+    	  	<div id="new" class="panel-collapse collapse in">
+      		  <div class="panel-body">
 	<!-- Render form for a new song -->
 	<%@submit = 'Upload Song'%>
 		<%@song = Song.new%>
 		<%= render 'songs/song_form' %>
-
+			  </div>
+            </div>
+          </div>
+		</div>
 	</div> 
 </div>

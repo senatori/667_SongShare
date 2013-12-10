@@ -5,9 +5,10 @@
 
 /* Default + Container Class CSS */
 
-body {
-	background-color:#C1C1FF;*/
+html,body {
+	background-color:#a3a3a3;
 	font-family: 'Oswald', sans-serif;
+	height: 100%;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -15,8 +16,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 .container {
 	padding-top: 70px;
-  	background-color:#C1C1FF;
 	text-align:center;
+	height: 80%;
 }
 
 legend{
@@ -30,8 +31,16 @@ fieldset {
 }
 
 footer {
-	height: 200px;
+	height: 20%;
 	text-align: center;
+	background: #a3a3a3;
+	background: -moz-linear-gradient(top,  #a3a3a3 0%, #c9c9c9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a3a3a3), color-stop(100%,#c9c9c9));
+	background: -webkit-linear-gradient(top,  #a3a3a3 0%,#c9c9c9 100%);
+	background: -o-linear-gradient(top,  #a3a3a3 0%,#c9c9c9 100%);
+	background: -ms-linear-gradient(top,  #a3a3a3 0%,#c9c9c9 100%);
+	background: linear-gradient(to bottom,  #a3a3a3 0%,#c9c9c9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3a3a3', endColorstr='#c9c9c9',GradientType=0 );
 }
 
 /* Navbar CSS */
@@ -42,20 +51,15 @@ footer {
 }
 
 .navbar-custom {
-	background: #022072;
-	background: -moz-linear-gradient(top,  #022072 0%, #001156 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#022072), color-stop(100%,#001156));
-	background: -webkit-linear-gradient(top,  #022072 0%,#001156 100%);
-	background: -o-linear-gradient(top,  #022072 0%,#001156 100%);
-	background: -ms-linear-gradient(top,  #022072 0%,#001156 100%);
-	background: linear-gradient(to bottom,  #022072 0%,#001156 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022072', endColorstr='#001156',GradientType=0 );
-	border-bottom-style:solid;
-	border-width:medium
-	border-top-style:none;
-	border-left-style:none;
-	border-right-style:none;
-	border-color:#003;
+	background: #c9c9c9;
+	background: -moz-linear-gradient(top,  #c9c9c9 0%, #a3a3a3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c9c9c9), color-stop(100%,#a3a3a3));
+	background: -webkit-linear-gradient(top,  #c9c9c9 0%,#a3a3a3 100%);
+	background: -o-linear-gradient(top,  #c9c9c9 0%,#a3a3a3 100%);
+	background: -ms-linear-gradient(top,  #c9c9c9 0%,#a3a3a3 100%);
+	background: linear-gradient(to bottom,  #c9c9c9 0%,#a3a3a3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9c9c9', endColorstr='#a3a3a3',GradientType=0 );
+	border-color: #a3a3a3;
 }
 
 .navbar-nav > li > a {
@@ -65,29 +69,42 @@ footer {
 }
 
 .navbar-default .navbar-nav > li > a {
-	color:#FFF;
+	color:#000;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-	color:#CCC;
+	color:#333;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	color:#FFF;
+	color:#000;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-	color:#FFF;
-	background-color:rgba(0,0,0,0.3);
+	color:#000;
+	background-color:rgba(0,0,0,0.2);
 }
 
 .navbar-default .navbar-nav > .dropdown > a .caret {
-	border-top-color:#FFF;
+	border-top-color:#000;
 }
 
 .navbar-default .navbar-nav > .dropdown > a:hover .caret, .navbar-default .navbar-nav > .dropdown > a:focus .caret {
-	border-top-color:#CCC;
+	border-top-color:#333;
 }
+
+/*.search-custom{	
+	margin-right:0;
+}
+.btn-custom{
+	margin-left:250px;
+	margin-top:-34px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+	position:fixed;
+	z-index:1;
+}*/
+
 
 .top-albums {
 	text-align:center;
