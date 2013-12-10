@@ -42,17 +42,22 @@ class AlbumsController < ApplicationController
 	def create
 
 		#save album
-    temp_hash= album_params()
-    image_upload_io= temp_hash[:album_artwork_url]
-    temp_hash.delete(:album_artwork_url)
+	    temp_hash= album_params()
+	    image_upload_io= temp_hash[:album_artwork_url]
+	    temp_hash.delete(:album_artwork_url)
 		@album = Album.new(temp_hash)
 		@album.save
+		id = @album.id
 
-    aws_album_art_upload(image_upload_io, "new")
+		puts "******* Before album art: id= " + id.to_s + '**************'
+
+    	aws_album_art_upload(image_upload_io, "new")
+
+    	puts "******* After album art: id= " + id.to_s + '**************'
 
 		
 		#reload form
-		redirect_to action: 'edit', id: params['id']
+		redirect_to action: 'edit', id: id
 	end
 
 	#PATCH/PUT /albums/1

@@ -10,7 +10,3 @@ jQuery ->
 window.fbAsyncInit = ->
   FB.init(appId: '173123302892053', cookie: true)
   window.close()
-
-  $('#sign_in').click (e) ->
-    e.preventDefault()
-    window.open("/auth/facebook", width=200,height=100)
