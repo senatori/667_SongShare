@@ -64,7 +64,7 @@ class AlbumsController < ApplicationController
 	def update
 		@album = Album.find(params['id'])
 
-    #housekeeping. we used :album_artwork_url to hold a .mp3 file but model expects a string
+    #housekeeping. we used :album_artwork_url to hold a .jpg file but model expects a string
     temp_hash= album_params()
     image_upload_io= temp_hash[:album_artwork_url]
     temp_hash.delete(:album_artwork_url)
