@@ -1,7 +1,7 @@
 	<div class="container">
       <table width="800" border="0" cellspacing="0" cellpadding="0"  class="album-info">
 	    <tr>
-	      <td rowspan="2"><%= image_tag @album.album_artwork_url, :class => "img-thumbnail" %></td>
+	      <td rowspan="2"><%= image_tag @album.album_artwork_url,width: '175', height: '175', :class => "img-thumbnail" %></td>
 	      <td><h2> <%=@album.title%> </h2></td>
         </tr>
 	    <tr>
