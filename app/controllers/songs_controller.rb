@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class SongsController < ApplicationController
 
 	#POST /songs
@@ -65,6 +67,12 @@ class SongsController < ApplicationController
 		redirect_to '/albums/' + @song.album_id.to_s + '/edit'
 	end
 
+
+	def download
+		@song = Song.find(params[:id])
+		@file = open(@song.source_url)
+		send_file @file, filename: @song.title + '.mp3'
+	end
 	
 	private
 

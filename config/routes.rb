@@ -36,6 +36,8 @@ GroupProject::Application.routes.draw do
   
   match '/album_edit', to: 'albums#new', via: 'get'
 
+  match '/download/:id', to: 'songs#download', via: 'post'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
