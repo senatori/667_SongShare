@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     fan = Fan.from_omniauth(env["omniauth.auth"])
     session[:fan_id] = fan.id
-    redirect_to root_url
+    redirect_to '/fans/' + current_fan.id.to_s
   end
 
   def destroy

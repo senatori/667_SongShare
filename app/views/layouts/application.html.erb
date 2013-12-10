@@ -16,7 +16,7 @@
     <ul class="nav navbar-nav">
       <!-- IF signed in as Artist, display this in navigation bar -->
       <% if signed_in? %>
-          <li><%= link_to current_artist.name, '#' %></li> <!-- will add username retrieval later-->
+          <li><%= link_to current_artist.name, '/artists/' + current_artist.id.to_s %></li> 
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
@@ -33,7 +33,7 @@
           
        <!-- IF signed in as Fan -->
        <% elsif current_fan %>
-          <li><%= link_to current_fan.name, '#'%> </li>
+          <li><%= link_to current_fan.name, '/fans/' + current_fan.id.to_s%> </li>
           <li id="fat-menu" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
