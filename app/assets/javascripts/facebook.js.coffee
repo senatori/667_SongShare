@@ -9,4 +9,4 @@ jQuery ->
 
 window.fbAsyncInit = ->
   FB.init(appId: '173123302892053', cookie: true)
-  window.close()
+  #window.close()
