@@ -202,3 +202,7 @@ table {
 .album-affix{
 	padding: 5px 10px;
 }
+
+.copyright {
+	font-size:9px;
+}
