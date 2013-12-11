@@ -27,7 +27,7 @@
             	<tr align=center>
 					<%count2 = 0%>
 					<%@albums2.each do |album2| %>
-						<% count++ %>
+						<% count2++ %>
 						<td>
 							<%= link_to (image_tag album2.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album2.id.to_s %>
