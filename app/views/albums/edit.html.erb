@@ -11,9 +11,9 @@
 	    })
 	</script>
 	<div id="myAffix" data-spy="affix">
-	    <a href="#" class="list-group-item album-affix">Album Information</a>
+	    <a href="#" class="list-group-item album-affix">Album: <%= @album.title %></a>
 		<%@songs.each do |song|%>
-	    	<a href="#<%= song.track_number %>" class="list-group-item album-affix">Song #<%= song.track_number %> Information</a>
+	    	<a href="#<%= song.track_number %>" class="list-group-item album-affix">Track #<%= song.track_number %>: <%= song.title %></a>
 		<% end %>
 	    <!-- <span>+ Add Another Track</span> -->
 	</div>
@@ -24,7 +24,7 @@
 				<div class="panel-heading">
 					<h4 class="panel-title">
 			  			<a data-toggle="collapse" data-parent="#accordion" href="#album">
-			  				Album Title
+			  				Album: <%= @album.title %>
 						</a>
       		  		</h4>
     			</div>
@@ -44,7 +44,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<a data-toggle="collapse" data-parent="#accordion" href="#<%= song.track_number %>">
-								<%= song.title %>
+								Track #<%= song.track_number %>: <%= song.title %>
 							</a>
 						</h4>
 					</div>
