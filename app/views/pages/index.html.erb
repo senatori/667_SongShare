@@ -1,59 +1,40 @@
     <div class="container">
-	  <h3>
-      		Fan.Music is placeholdertext for a website we are currently building. It is named this as to
-        	parody the name of John Roberts' real company. I thought it was pretty funny, but it's simply
-        	placeholder for now.
+	  	<h3>
+      		SongShare is a place for artists and their fans to connect and share music to the world.
       	</h3>
         <fieldset>
-        	<legend align="left">Top Albums</legend>
+        	<legend align="left">What's New?</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-            	<tr align="center">
-                	<td>
-                    	<a href="/album"><%= image_tag "album_cover.jpg", :class => "img-thumbnail" %></a>
-						<a href="/album"><h4>Stomach Cramp</h4></a>
-						<h6> By Gatormouth</h6>
-                  </td>
-                	<td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-				    <h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
-                	<td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-				    <h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td><td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-				    <h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
+            	<tr align=center>
+					<%count = 0%>
+					<%@albums.order(created_at: :desc).each do |album| %>
+						<% count++ %>
+						<td>
+							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
+                            '/albums/' + album.id.to_s %>
+							<h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
+							<h6> By <%= link_to @Artist.title, '/artists/'+@artist.id.to_s %></h6>
+						</td>
+						<% break if (count == 4) %>
+					<% end %>
            	  </tr>
           </table>
         </fieldset>
-        <fieldset>
-        	<legend align="left">Discover Albums</legend>
+		<fieldset>
+        	<legend align="left">Just Released</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-            	<tr>
-                	<td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
-                    <td>
-                    	<%= image_tag "album_cover.jpg", :class => "img-thumbnail" %>
-						<h4>Stomach Cramp</h4>
-                    	<h6> By Gatormouth</h6>
-                    </td>
+            	<tr align=center>
+					<%count = 0%>
+					<%@albums.order(release_date: :desc).each do |album| %>
+						<% count++ %>
+						<td>
+							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
+                            '/albums/' + album.id.to_s %>
+							<h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
+							<h6> By <%= link_to @Artist.title, '/artists/'+@artist.id.to_s %></h6>
+						</td>
+						<% break if (count == 4) %>
+					<% end %>
            	  </tr>
           </table>
         </fieldset>
