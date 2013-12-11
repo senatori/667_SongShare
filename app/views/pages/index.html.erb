@@ -13,7 +13,8 @@
 							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album.id.to_s %>
 							<h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
-							<h6> By <%= link_to @Artist.title, '/artists/'+@artist.id.to_s %></h6>
+							<% artist = @artists.where(artist_id: album.artist_id) %>
+							<h6> By <%= link_to artist.name, '/artists/'+@artist.id.to_s %></h6>
 						</td>
 						<% break if (count == 4) %>
 					<% end %>
@@ -31,7 +32,8 @@
 							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album.id.to_s %>
 							<h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
-							<h6> By <%= link_to @Artist.title, '/artists/'+@artist.id.to_s %></h6>
+							<% artist = @artists.where(artist_id: album.artist_id) %>
+							<h6> By <%= link_to artist.name, '/artists/'+@artist.id.to_s %></h6>
 						</td>
 						<% break if (count == 4) %>
 					<% end %>
