@@ -6,9 +6,9 @@
         	<legend align="left">What's New?</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
             	<tr align=center>
-					<%count = 0%>
+					<%countx = 0 %>
 					<% @albums.each do |album| %>
-						<% count++ %>
+						<% countx += 1 %>
 						<td>
 							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album.id.to_s %>
@@ -16,7 +16,7 @@
 							<% artist = Artist.where(id: @albums.artist_id) %>
 							<h6> By <%= link_to artist.name, '/artists/'+artist.id.to_s %></h6>
 						</td>
-						<% break if (count == 4) %>
+						<% break if (countx == 4) %>
 					<% end %>
            	  </tr>
           </table>
@@ -25,9 +25,9 @@
         	<legend align="left">Just Released</legend>
         	<table width="100%" border="0" cellspacing="0" cellpadding="0">
             	<tr align=center>
-					<%count2 = 0%>
+					<%county = 0%>
 					<%@albums2.each do |album2| %>
-						<% count2++ %>
+						<% county += 1 %>
 						<td>
 							<%= link_to (image_tag album2.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album2.id.to_s %>
@@ -35,7 +35,7 @@
 							<% artist2 = Artist.where(id: @albums2.artist_id) %>
 							<h6> By <%= link_to artist2.name, '/artists/'+artist2.id.to_s %></h6>
 						</td>
-						<% break if (count2 == 4) %>
+						<% break if (county == 4) %>
 					<% end %>
            	  </tr>
           </table>
