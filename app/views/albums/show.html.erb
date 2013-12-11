@@ -18,7 +18,7 @@
         <td class="play" width="40" class="song-icons">
           <audio preload="metadata"> <source src=<%=song.source_url%>> </audio>
           <span class="glyphicon glyphicon-play"></span></td>
-        <td width="380" class="song-title"><b> <%=song.track_number%>. <%=song.title%></b></td>
+        <td width="380" class="song-title"><b><%=song.track_number%>. <%=song.title%></b></td>
 
         <!-- download link -->
         <td width="40" class="song-icons">
@@ -43,7 +43,7 @@
               <li><strong>Add Song to Playlist</strong></li>
               <!-- display existing fan playlists to add song to -->
             <%@playlists.each do |playlist|%>
-              <li><%=link_to playlist.title%></li>
+              <li id="<%= song.id%>" onclick="addsong(this)" ><%= playlist.title%></li>
             <%end%>
 
             <!-- form to create new playlist -->
@@ -66,3 +66,22 @@
       	Credits: <%=@album.credits%>
       </span>
     </div>
+
+    <script>
+
+        function addsong(domObject)
+        {
+            var song_id= domObject.id;
+            var playlist_name= domObject.innerText;
+
+        }
+
+        //AJAX handing data over to ruby/rails controller via post
+        $.ajax({
+            url: "/appointments/",
+            type: "POST",
+            data: {songid: song_id , playlistname: playlist_name}
+
+        });
+
+    </script>

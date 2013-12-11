@@ -87,4 +87,6 @@ class AlbumsController < ApplicationController
     params.require(:album).permit(:title, :release_date, :genre,
                                  :credits, :album_artwork_url, :artist_id)
   end
+
+
 end

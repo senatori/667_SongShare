@@ -31,6 +31,10 @@ class PlaylistsController < ApplicationController
 		end
 	end
 
+  #POST '/playlists/add_song'
 	def add_song
-	end
+    song_id= params[songid]
+    playlist_name= params[playlistname]
+  end
+
 end
