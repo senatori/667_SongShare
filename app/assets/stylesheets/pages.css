@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6 {
 .container {
 	padding-top: 70px;
 	text-align:center;
-	height: 80%;
+	height: 90%;
 }
 
 legend{
@@ -31,7 +31,7 @@ fieldset {
 }
 
 footer {
-	height: 20%;
+	height: 10%;
 	text-align: center;
 	background: #a3a3a3;
 	background: -moz-linear-gradient(top,  #a3a3a3 0%, #c9c9c9 100%);
@@ -205,4 +205,5 @@ table {
 
 .copyright {
 	font-size:9px;
+	height:100%;
 }
