@@ -40,12 +40,13 @@
 
             <!-- Dropdown for adding song to playlist -->
     				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><strong>Add Song to Playlist</strong></li>
+              <li class="dropdown-header">Add Song to Playlist</li>
               <!-- display existing fan playlists to add song to -->
             <%@playlists.each do |playlist|%>
-              <li id="<%= song.id%>" onclick="addsong(this)" ><%= playlist.title%></li>
+              <li class='playlist-title' id="<%= song.id%>" onclick="addsong(this)" ><%= playlist.title%></li>
             <%end%>
 
+            <li role="presentation" class="divider"></li>
             <!-- form to create new playlist -->
       			<li><%=form_for @new_playlist do |f|%>
                   <%= f.text_field :title, placeholder: 'new playlist'%>
