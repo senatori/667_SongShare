@@ -20,7 +20,7 @@
                         <tr class="albums">
                     <%end%>
                     <td>
-                        <%= link_to (image_tag "album_cover.jpg", width: '175', height: '175', :class => "img-thumbnail"), 
+                        <%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album.id.to_s %>
 
                         <!-- check if this page belongs to signed in artist -->
@@ -48,6 +48,7 @@
                         <%end%>
                       </td>
                   <%end%>
+                  
            	  </tr>
           </table>
         </fieldset>
