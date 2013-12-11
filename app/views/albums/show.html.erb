@@ -74,14 +74,16 @@
             var song_id= domObject.id;
             var playlist_name= domObject.innerText;
 
+            //AJAX handing data over to ruby/rails controller via post
+            $.ajax({
+                url: "/playlists/add_song",
+                type: "POST",
+                data: {songid: song_id , playlistname: playlist_name}
+
+            });
+
         }
 
-        //AJAX handing data over to ruby/rails controller via post
-        $.ajax({
-            url: "/appointments/",
-            type: "POST",
-            data: {songid: song_id , playlistname: playlist_name}
 
-        });
 
     </script>

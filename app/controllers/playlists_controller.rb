@@ -33,8 +33,18 @@ class PlaylistsController < ApplicationController
 
   #POST '/playlists/add_song'
 	def add_song
-    song_id= params[songid]
-    playlist_name= params[playlistname]
+    song_id= params[:songid]
+    playlist_name= params[:playlistname]
+
+    user= current_fan.id
+
+    playlist= Playlist.find_by(title: playlist_name, fan_id: user)
+
+    playlist_song= PlaylistSong.new(playlist_id: playlist.id, song_id: song_id)
+    playlist_song.save
+
+
+
   end
 
 end
