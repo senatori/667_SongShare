@@ -13,7 +13,7 @@
 							<%= link_to (image_tag album.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album.id.to_s %>
 							<h4><%= link_to album.title, '/albums/'+album.id.to_s %></h4>
-							<% artist = Artist.where(id: @albums.artist_id) %>
+							<% artist = Artist.find(album.artist_id) %>
 							<h6> By <%= link_to artist.name, '/artists/'+artist.id.to_s %></h6>
 						</td>
 						<% break if (countx == 4) %>
@@ -32,7 +32,7 @@
 							<%= link_to (image_tag album2.album_artwork_url, width: '175', height: '175', :class => "img-thumbnail"), 
                             '/albums/' + album2.id.to_s %>
 							<h4><%= link_to album2.title, '/albums/'+album2.id.to_s %></h4>
-							<% artist2 = Artist.where(id: @albums2.artist_id) %>
+							<% artist2 = Artist.find(album2.artist_id) %>
 							<h6> By <%= link_to artist2.name, '/artists/'+artist2.id.to_s %></h6>
 						</td>
 						<% break if (county == 4) %>

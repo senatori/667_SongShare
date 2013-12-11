@@ -19,7 +19,7 @@
           <td class = "play" width="40" class="song-icons">
             <audio preload="metadata"> <source src=<%=song.source_url%>> </audio>
             <span class="glyphicon glyphicon-play"></span></td>
-          <td width="380" class="song-title"><b>1. <%=link_to song.title, '/albums/' + song.album_id.to_s%> 
+          <td width="380" class="song-title"><b><%=link_to song.title, '/albums/' + song.album_id.to_s%> 
             <span class="playlist-artist">
               - <%= link_to (Artist.find(song.artist_id).name), '/artists/' + Artist.find(song.artist_id).id.to_s%>
             </span></b></td>
